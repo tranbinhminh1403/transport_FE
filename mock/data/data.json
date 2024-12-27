@@ -1,0 +1,254 @@
+{
+  "costs": [
+    {
+      "id": 1,
+      "code": "OX235T",
+      "driver": "Nguyễn Tuân",
+      "travel_code": "HT-MX2307",
+      "type": "nhiên liệu",
+      "cost": 1000000,
+      "note": "chi phí nhiên liệu cho chuyến đi HT-MX2307",
+      "invoice": "invoice",
+      "createdAt": "2024-11-07T00:00:00.000Z",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "code": "OX236T",
+      "driver": "Đức Phúc",
+      "travel_code": "HT-MX2307",
+      "type": "nhiên liệu",
+      "cost": 1000000,
+      "note": "chi phí nhiên liệu cho chuyến đi HT-MX2307",
+      "invoice": "invoice",
+      "createdAt": "2024-11-07T00:00:00.000Z",
+      "status": "pending"
+    }
+  ],
+  "warehouses": [
+    {
+      "id": 1,
+      "commodity": "C4 - Than đá 4(VNL)",
+      "classify": "C4",
+      "quantity": 6.23,
+      "unit": "ton",
+      "status": "export",
+      "invoice": "invoice",
+      "note": "xuất kho 7/11",
+      "customer": "Khách hàng 1",
+      "supervisor": "Nhân viên A",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "commodity": "C4 - Than đá 4(VNL)",
+      "classify": "C4",
+      "quantity": 6.85,
+      "unit": "ton",
+      "status": "import",
+      "invoice": "invoice",
+      "note": "nhập kho 7/12",
+      "customer": "",
+      "supervisor": "Nhân viên B",
+      "createdAt": "2024-12-07T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "commodity": "C4 - Than đá 4(VNL)",
+      "classify": "C4",
+      "quantity": 7.22,
+      "unit": "ton",
+      "status": "import",
+      "invoice": "invoice",
+      "note": "nhập kho 7/12",
+      "customer": "",
+      "supervisor": "Nhân viên C",
+      "createdAt": "2024-12-07T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "commodity": "C5 - Than đá 5(VNL)",
+      "classify": "C5",
+      "quantity": 12.71,
+      "unit": "ton",
+      "status": "export",
+      "invoice": "invoice",
+      "note": "xuất kho 7/11",
+      "customer": "Khách hàng 1",
+      "supervisor": "Nhân viên A",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "commodity": "C5 - Than đá 5(VNL)",
+      "classify": "C5",
+      "quantity": 13.12,
+      "unit": "ton",
+      "status": "import",
+      "invoice": "invoice",
+      "note": "nhập kho 7/11",
+      "customer": "",
+      "supervisor": "Nhân viên B",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    }
+  ],
+  "travels": [
+    {
+      "id": 1,
+      "code": "HT-MX2307",
+      "receive_date": "2024-11-07T00:00:00.000Z",
+      "date": "2024-11-07T00:00:00.000Z",
+      "route":"Hà Nội - Hải Phòng",
+      "note": "hàng hơi dễ vỡ",
+      "license_plate": "B 1234",
+      "driver": "Đức Phúc",
+      "cost":596000,
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "code": "HT-MX4470",
+      "receive_date": "2024-11-07T00:00:00.000Z",
+      "date": "2024-11-07T00:00:00.000Z",
+      "route":"Bắc Ninh - Hải Phòng",
+      "note": "hàng không dễ vỡ",
+      "license_plate": "A 1234",
+      "driver": "Mao Phú",
+      "cost":796000,
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "code": "HT-MX4470",
+      "receive_date": "2024-11-07T00:00:00.000Z",
+      "date": "2024-11-07T00:00:00.000Z",
+      "route":"Bắc Ninh - Hải Phòng",
+      "note": "hàng không dễ vỡ",
+      "license_plate": "A 1234",
+      "driver": "Mao Phú",
+      "cost":796000,
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "employee_code": "NV001",
+      "name": "Đức Phúc",
+      "salary_receive": 2000000,
+      "bonus": 1000000,
+      "minus": 300000,
+      "final_salary": 3000000
+    },
+    {
+      "id": 2,
+      "employee_code": "NV002",
+      "name": "Mao Phú",
+      "salary_receive": 2300000,
+      "bonus": 600000,
+      "minus": 1300000,
+      "final_salary": 3000000
+    }
+  ],
+  "trucks": [
+    {
+      "id": 1,
+      "license_plate": "50H 23891",
+      "type": "Xe tải",
+      "note": "Xe tải to",
+      "status": true,
+      "driver": "Nguyễn Tuân",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "license_plate": "50H 23892",
+      "type": "Xe tải",
+      "note": "Xe tải khá to",
+      "status": true,
+      "driver": "Đức Phúc",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "license_plate": "50H 23893",
+      "type": "Xe tải",
+      "note": "Xe tải rất nhỏ",
+      "status": true,
+      "driver": "Mao Phú",
+      "createdAt": "2024-11-07T00:00:00.000Z"
+    }
+  ],
+  "drivers": [
+    {
+      "id": 1,
+      "avatar": "https://eu.ui-avatars.com/api/?name=John+Doe&size=250",
+      "employee_code":"NV001",
+      "name": "Nguyễn Tuân",
+      "createdAt": "2024-11-07T00:00:00.000Z",
+      "phone_number": "0945677885",
+      "date_of_birth": "2000-01-01",
+      "note": "Bình Dương"
+    },
+    {
+      "id": 2,
+      "avatar": "https://eu.ui-avatars.com/api/?name=John+Doe&size=250",
+      "employee_code":"NV002",
+      "name": "Đức Phúc",
+      "createdAt": "2024-11-07T00:00:00.000Z",
+      "phone_number": "0945677885",
+      "date_of_birth": "2000-01-01",
+      "note": "Bình Dương"
+    },
+    {
+      "id": 3,
+      "avatar": "https://eu.ui-avatars.com/api/?name=John+Doe&size=250",
+      "employee_code":"NV003",
+      "name": "Mao Phú",
+      "createdAt": "2024-11-07T00:00:00.000Z",
+      "phone_number": "0945677885",
+      "date_of_birth": "2000-01-01",
+      "note": "Bình Dương"
+    }
+  ],
+  "distances": [
+    {
+      "id": 1,
+      "code": "HT001",
+      "route": "Hà Nội - Hải Phòng",
+      "cost": 596000,
+      "note": "Từ Hà Nội đến Hải Phòng"
+    },
+    {
+      "id": 2,
+      "code": "HT002",
+      "route": "Bắc Ninh - Hải Phòng",
+      "cost": 796000,
+      "note": "Từ Bắc Ninh đến Hải Phòng"
+    },
+    {
+      "id": 3,
+      "code": "HT003",
+      "route": "Hà Nội- Bình Dương",
+      "cost": 686000,
+      "note": "Từ Hà Nội đến Bình Dương"
+    }
+  ],
+  "costsType": [
+    {
+      "id": 1,
+      "name": "Nhiên liệu",
+      "note": "Chi phí nhiên liệu"
+    },
+    {
+      "id": 2,
+      "name": "Sửa chữa",
+      "note": "Chi phí sửa chữa"
+    },
+    {
+      "id": 3,
+      "name": "Cúng xe",
+      "note": "Chi phí cúng xe"
+    }
+  ]
+}

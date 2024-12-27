@@ -1,0 +1,28 @@
+.description {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  .descriptionTitle {
+    margin-bottom: 16px;
+    // color: #1890ff;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .commodityTotal {
+    .positive {
+      color: #52c41a;
+    }
+
+    .negative {
+      color: #ff4d4f;
+    }
+  }
+}
