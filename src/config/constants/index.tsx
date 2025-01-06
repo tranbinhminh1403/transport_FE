@@ -33,10 +33,10 @@ export const warehouseColumns: TableProps<WarehouseDataType>["columns"] = [
   },
   {
     title: "Tên hàng hoá",
-    dataIndex: "commodity",
-    key: "commodity",
-    render: (commodity, record) => {
-      const isExport = record.status === "export";
+    dataIndex: "goodsName",
+    key: "goodsName",
+    render: (name, record) => {
+      const isExport = record.origin === false;
       return (
         <>
           {isExport ? (
@@ -44,7 +44,7 @@ export const warehouseColumns: TableProps<WarehouseDataType>["columns"] = [
           ) : (
             <ArrowDownOutlined style={{ color: "green" }} />
           )}{" "}
-          {commodity}
+          {name}
         </>
       );
     },
@@ -57,8 +57,8 @@ export const warehouseColumns: TableProps<WarehouseDataType>["columns"] = [
   },
   {
     title: "Ghi chú",
-    dataIndex: "note",
-    key: "note",
+    dataIndex: "originDescription",
+    key: "originDescription",
   },
   {
     title: "Hoá đơn",
@@ -67,8 +67,8 @@ export const warehouseColumns: TableProps<WarehouseDataType>["columns"] = [
   },
   {
     title: "Khách hàng",
-    dataIndex: "customer",
-    key: "customer",
+    dataIndex: "customerName",
+    key: "customerName",
   },
   {
     title: "Ngày tạo",
@@ -81,24 +81,24 @@ export const warehouseColumns: TableProps<WarehouseDataType>["columns"] = [
 export const costColumns: TableProps<CostDataType>["columns"] = [
   {
     title: "Mã",
-    dataIndex: "code",
-    key: "code",
+    dataIndex: "driverId",
+    key: "driverId",
   },
   {
     title: "Tài xế",
-    dataIndex: "driver",
-    key: "driver",
+    dataIndex: "driverName",
+    key: "driverName",
   },
   {
     title: "Loại chi phí",
-    dataIndex: "type",
-    key: "type",
+    dataIndex: "expensesConfigType",
+    key: "expensesConfigType",
   },
   {
     title: "Số tiền",
-    dataIndex: "cost",
-    key: "cost",
-    sorter: (a, b) => a.cost - b.cost,
+    dataIndex: "amount",
+    key: "amount",
+    sorter: (a, b) => a.amount - b.amount,
   },
   {
     title: "Ghi chú",
@@ -112,8 +112,8 @@ export const costColumns: TableProps<CostDataType>["columns"] = [
   },
   {
     title: "Mã hành trình",
-    dataIndex: "travel_code",
-    key: "travel_code",
+    dataIndex: "scheduleId",
+    key: "scheduleId",
   },
   {
     title: "Ngày tạo",
@@ -126,13 +126,13 @@ export const costColumns: TableProps<CostDataType>["columns"] = [
 export const tripColumns: TableProps<TripDataType>["columns"] = [
   {
     title: "Mã",
-    dataIndex: "code",
-    key: "code",
+    dataIndex: "id",
+    key: "id",
   },
   {
     title: "Ngày",
-    dataIndex: "receive_date",
-    key: "receive_date",
+    dataIndex: "arrivalTime",
+    key: "arrivalTime",
     render: (text) => formatDate(text),
   },
   {
@@ -141,26 +141,27 @@ export const tripColumns: TableProps<TripDataType>["columns"] = [
     key: "note",
   },
   {
-    title: "Tuyen",
-    dataIndex: "route",
+    title: "Tuyến",
+    dataIndex: "",
     key: "route",
+    render: (record) => `${record.placeA} - ${record.placeB}`,
   },
 
   {
     title: "BS Xe",
-    dataIndex: "license_plate",
-    key: "license_plate",
+    dataIndex: "truckLicense",
+    key: "truckLicense",
   },
   {
     title: "Tài xế",
-    dataIndex: "driver",
-    key: "driver",
+    dataIndex: "driverName",
+    key: "driverName",
   },
   {
     title: "Số tiền",
-    dataIndex: "cost",
-    key: "cost",
-    sorter: (a, b) => a.cost - b.cost,
+    dataIndex: "amount",
+    key: "amount",
+    sorter: (a, b) => a.amount - b.amount,
   },
   {
     title: "Ngày tạo",
@@ -211,13 +212,14 @@ export const truckColumns: TableProps<TruckDataType>["columns"] = [
   },
   {
     title: "Biển số",
-    dataIndex: "license_plate",
-    key: "license_plate",
+    dataIndex: "licensePlate",
+    key: "licensePlate",
   },
   {
     title: "Loại xe",
     dataIndex: "type",
     key: "type",
+    render: (type) => type === 0 ? "Xe tải" : "Mooc",
   },
   {
     title: "Ghi chú",
@@ -228,12 +230,12 @@ export const truckColumns: TableProps<TruckDataType>["columns"] = [
     title: "Trạng thái",
     dataIndex: "status",
     key: "status",
-    render: (status) => (status ? "Đang sử dụng" : "Tạm dừng"),
+    render: (status) => (status === 0 ? "Đang sử dụng" : "Tạm dừng"),
   },
   {
     title: "Tài xế",
-    dataIndex: "driver",
-    key: "driver",
+    dataIndex: "driverName",
+    key: "driverName",
   },
   {
     title: "Ngày tạo",
@@ -257,23 +259,23 @@ export const employeeColumns: TableProps<EmployeeDataType>["columns"] = [
   },
   {
     title: "Mã NV",
-    dataIndex: "employee_code",
-    key: "employee_code",
+    dataIndex: "id",
+    key: "id",
   },
   {
     title: "Tên NV",
-    dataIndex: "name",
-    key: "name",
+    dataIndex: "fullName",
+    key: "fullName",
   },
   {
     title: "SĐT",
-    dataIndex: "phone_number",
-    key: "phone_number",
+    dataIndex: "phone",
+    key: "phone",
   },
   {
     title: "Ngày sinh",
-    dataIndex: "date_of_birth",
-    key: "date_of_birth",
+    dataIndex: "dateOfBirth",
+    key: "dateOfBirth",
     render: (text) => formatDate(text),
   },
   {
@@ -297,18 +299,19 @@ export const distanceColumns: TableProps<DistanceDataType>["columns"] = [
   },
   {
     title: "Mã hành trình",
-    dataIndex: "code",
-    key: "code",
+    dataIndex: "id",
+    key: "id",
   },
   {
     title: "Tuyến",
-    dataIndex: "route",
+    dataIndex: "",
     key: "route",
+    render: (record) => `${record.placeA} - ${record.placeB}`,
   },
   {
     title: "Chi phí",
-    dataIndex: "cost",
-    key: "cost",
+    dataIndex: "amount",
+    key: "amount",
   },
   {
     title: "Ghi chú",
@@ -325,8 +328,8 @@ export const costTypeColumns: TableProps<CostTypeDataType>["columns"] = [
   },
   {
     title: "Tên",
-    dataIndex: "name",
-    key: "name",
+    dataIndex: "type",
+    key: "type",
   },
   {
     title: "Ghi chú",

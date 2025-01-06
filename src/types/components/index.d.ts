@@ -36,23 +36,23 @@ export type ContentData =
 
 export interface WarehouseDataType {
   id: number;
-  commodity: string;
+  goodsName: string;
   quantity: number;
-  status: string;
+  origin: boolean;
   note: string;
   invoice: string;
-  customer: string;
-  supervisor: string;
+  customerName: string;
+  fullNameRefUser: string;
   createdAt: string;
 }
 
 export interface CostDataType {
   id: number;
   code: string;
-  driver: string;
-  travel_code: string;
-  type: string;
-  cost: number;
+  driverName: string;
+  scheduleId: string;
+  expensesConfigType: string;
+  amount: number;
   note: string;
   invoice: string;
   createdAt: string;
@@ -65,9 +65,9 @@ export interface TripDataType {
   receive_date: string;
   route: string;
   note: string;
-  license_plate: string;
-  driver: string;
-  cost: number;
+  truckLicense: string;
+  driverName: string;
+  amount: number;
   createdAt: string;
 }
 
@@ -83,11 +83,11 @@ export interface ReportDataType {
 
 export interface TruckDataType {
   id: number;
-  license_plate: string;
+  licensePlate: string;
   type: string;
   note: string;
   status: boolean;
-  driver: string;
+  driverName: string;
   createdAt: string;
 }
 
@@ -112,6 +112,6 @@ export interface DistanceDataType {
 
 export interface CostTypeDataType {
   id: number;
-  name: string;
+  type: string;
   note: string;
 }

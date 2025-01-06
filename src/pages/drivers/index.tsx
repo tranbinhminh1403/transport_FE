@@ -1,35 +1,32 @@
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import { useGetDrivers } from "../../hooks/useGetDrivers";
-import { useEffect } from "react";
-import { setData } from "../../store/slice/dataSlice";
-import { Filter } from "../../components/filter";
 import { Description } from "../../components/description";
 import { ContentTable } from "../../components/table";
 import { employeeColumns } from "../../config/constants/index.tsx";
+import { setData } from "../../store/slice/dataSlice";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../hooks/useAppDispatch.ts";
+import { EmployeeDataType } from "../../types/components/index";
+import { ColumnsType } from "antd/es/table/interface";
+import { useGetData } from "../../hooks/useGetData.ts";
 
 export const DriverPage = () => {
-  const filterState = useSelector((state: RootState) => state.filter);
-  const { data, isLoading, error } = useGetDrivers(filterState.status);
-  const dispatch = useDispatch();
+  const { data, isLoading, error } = useGetData("/users/driver");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data) {
-      dispatch(setData({ type: "employees", data }));
+      dispatch(setData({ type: "drivers", data }));
     }
   }, [data, dispatch]);
 
   return (
     <div>
-      <Filter />
       <Description data={data} />
       <ContentTable
-        columns={employeeColumns}
-        dataSource={data}
+        columns={employeeColumns as ColumnsType<EmployeeDataType>}
+        dataSource={data as EmployeeDataType[]}
         isLoading={isLoading}
         error={error}
       />
     </div>
   );
-}
-
+};

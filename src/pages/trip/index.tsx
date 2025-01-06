@@ -1,18 +1,16 @@
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import { useGetWarehouses } from "../../hooks/useGetWarehouses";
-import { useEffect } from "react";
-import { setData } from "../../store/slice/dataSlice";
-import { Filter } from "../../components/filter";
 import { Description } from "../../components/description";
 import { ContentTable } from "../../components/table";
 import { tripColumns } from "../../config/constants/index.tsx";
-import { useGetTrip } from "../../hooks/useGetTrip.ts";
+import { setData } from "../../store/slice/dataSlice";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../hooks/useAppDispatch.ts";
+import { TripDataType } from "../../types/components/index";
+import { ColumnsType } from "antd/es/table/interface";
+import { useGetData } from "../../hooks/useGetData.ts";
 
 export const TripPage = () => {
-  const filterState = useSelector((state: RootState) => state.filter);
-  const { data, isLoading, error } = useGetTrip(filterState.status);
-  const dispatch = useDispatch();
+  const { data, isLoading, error } = useGetData("/schedules");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data) {
@@ -22,14 +20,13 @@ export const TripPage = () => {
 
   return (
     <div>
-      <Filter />
       <Description data={data} />
       <ContentTable
-        columns={tripColumns}
-        dataSource={data}
+        columns={tripColumns as ColumnsType<TripDataType>}
+        dataSource={data as TripDataType[]}
         isLoading={isLoading}
         error={error}
       />
     </div>
   );
-}
+};

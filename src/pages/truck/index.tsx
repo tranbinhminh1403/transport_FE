@@ -1,17 +1,16 @@
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import { useGetTrucks } from "../../hooks/useGetTrucks";
-import { useEffect } from "react";
-import { setData } from "../../store/slice/dataSlice";
-import { Filter } from "../../components/filter";
 import { Description } from "../../components/description";
 import { ContentTable } from "../../components/table";
-import { truckColumns } from "../../config/constants/index.tsx";
+import { tripColumns, truckColumns } from "../../config/constants/index.tsx";
+import { setData } from "../../store/slice/dataSlice";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../hooks/useAppDispatch.ts";
+import { TruckDataType } from "../../types/components/index";
+import { ColumnsType } from "antd/es/table/interface";
+import { useGetData } from "../../hooks/useGetData.ts";
 
 export const TruckPage = () => {
-  const filterState = useSelector((state: RootState) => state.filter);
-  const { data, isLoading, error } = useGetTrucks(filterState.status);
-  const dispatch = useDispatch();
+  const { data, isLoading, error } = useGetData("/trucks");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data) {
@@ -21,14 +20,13 @@ export const TruckPage = () => {
 
   return (
     <div>
-      <Filter />
       <Description data={data} />
       <ContentTable
-        columns={truckColumns}
-        dataSource={data}
+        columns={truckColumns as ColumnsType<TruckDataType>}
+        dataSource={data as TruckDataType[]}
         isLoading={isLoading}
         error={error}
       />
     </div>
   );
-}
+};

@@ -88,14 +88,11 @@ export const fetcher = <T>(
   },
   options?: ConfigOptions,
 ) => {
-  console.log("Request Config:", config);
-  // console.log("Request Method:", config.method);
-  // console.log("Request URL:", config.url);
-  // console.log("Request Data:", config.data);
-  console.log("Request Headers:", {
-    Accept: options?.headerValueType ?? (options?.isFormData ? 'multipart/form-data' : 'application/json'),
-    Authorization: getAuthorization(options),
-  });
+  // console.log("Request Config:", config);
+  // console.log("Request Headers:", {
+  //   Accept: options?.headerValueType ?? (options?.isFormData ? 'multipart/form-data' : 'application/json'),
+  //   Authorization: getAuthorization(options),
+  // });
 
   return new Promise<T>((resolve, reject) => {
     axios

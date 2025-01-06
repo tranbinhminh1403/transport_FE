@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { fetcher, HttpMethod } from "../../config/api";
+import { fetcher, HttpMethod } from "../config/api";
 
-export const useFetchGoods = () => {
+export const useGetData = (url: string) => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,9 +11,9 @@ export const useFetchGoods = () => {
       try {
         const response = await fetcher({
           method: HttpMethod.GET,
-          url: "/goods/filter",
+          url,
         }, { withToken: true });
-        setData(response);
+        setData(response.data);
       } catch (err) {
         setError(err);
       } finally {

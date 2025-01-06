@@ -1,36 +1,32 @@
-import { useEffect } from "react";
-import { Filter } from "../../components/filter";
-import { useDispatch, useSelector } from "react-redux";
-import { ContentTable } from "../../components/table";
-import { RootState } from "../../store";
-import { useGetCostType } from "../../hooks/useGetCostType";
-import { setData } from "../../store/slice/dataSlice";
 import { Description } from "../../components/description";
+import { ContentTable } from "../../components/table";
 import { costTypeColumns } from "../../config/constants/index.tsx";
-import { CostTypeDataType } from "../../types/components";
+import { setData } from "../../store/slice/dataSlice";
+import { useEffect } from "react";
+import { useAppDispatch } from "../../hooks/useAppDispatch.ts";
+import { CostTypeDataType } from "../../types/components/index";
+import { ColumnsType } from "antd/es/table/interface";
+import { useGetData } from "../../hooks/useGetData.ts";
 
 export const CostTypePage = () => {
-  const filterState = useSelector((state: RootState) => state.filter);
-  const { data, isLoading, error } = useGetCostType(filterState.status);
-  const dispatch = useDispatch();
+  const { data, isLoading, error } = useGetData("/expenses/configs");
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (data) {
-      dispatch(setData({ type: "costTypes", data }));
+      dispatch(setData({ type: "costsType", data }));
     }
   }, [data, dispatch]);
 
   return (
     <div>
-      <Filter />
-      <Description data={data} />
+      {/* <Description data={data} /> */}
       <ContentTable
-        columns={costTypeColumns}
+        columns={costTypeColumns as ColumnsType<CostTypeDataType>}
         dataSource={data as CostTypeDataType[]}
         isLoading={isLoading}
         error={error}
       />
     </div>
-  );  
-}
-
+  );
+};
